@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1474,1594</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1641,1491</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTop10Names_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -72,10 +72,9 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This workflow is responsible for extracting names from given websites. In the for each loop robot navigates to the pages and on each of them he reads names using Get Text activity next result is checked with the regex expression and specified number of names is added to the TransactionData List&lt;String&gt; collection." DisplayName="ExtractNames" sap:VirtualizedContainerService.HintSize="716,1529" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="This workflow is responsible for extracting names from given websites. In the for each loop robot navigates to the pages and on each of them he reads names using Get Text activity next result is checked with the regex expression and specified number of names is added to the TransactionData List&lt;String&gt; collection." DisplayName="ExtractNames" sap:VirtualizedContainerService.HintSize="716,1426" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Browser" Name="govBrowser" />
     </Sequence.Variables>
@@ -85,22 +84,22 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each websiteURL" sap:VirtualizedContainerService.HintSize="674,1380" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_WebsiteURLS]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each websiteURL" sap:VirtualizedContainerService.HintSize="674,1277" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_WebsiteURLS]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="websiteURL" />
           </ActivityAction.Argument>
-          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser GOV Website" sap:VirtualizedContainerService.HintSize="638,1256" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="True" UiBrowser="[govBrowser]" Url="[websiteURL]">
+          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser GOV Website" sap:VirtualizedContainerService.HintSize="638,1153" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="True" UiBrowser="[govBrowser]" Url="[websiteURL]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,1155" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="604,1052" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="extractedNames" />
-                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="regexResultMatchExtractedNames" />
+                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="regexMatch" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -108,8 +107,15 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="562,22" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
-                  <ui:LogMessage DisplayName="Log Message Navigate To" sap:VirtualizedContainerService.HintSize="562,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Navigate to: &quot; + websiteURL]" />
-                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Names" sap:VirtualizedContainerService.HintSize="562,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                  <ui:LogMessage DisplayName="Log Message Navigate To" sap:VirtualizedContainerService.HintSize="562,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Navigate to: &quot; + websiteURL]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:LogMessage>
+                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text Names" sap:VirtualizedContainerService.HintSize="562,51" sap2010:WorkflowViewState.IdRef="GetValue_1">
                     <ui:GetValue.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5260442c-5f2c-405f-8595-4e10962513ae" InformativeScreenshot="fd6aeb337530634fb8fae7ae65152ff2" Selector="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;article&amp;gt;div&amp;gt;div&amp;gt;p' tag='P' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -123,9 +129,22 @@
                     <ui:GetValue.Value>
                       <OutArgument x:TypeArguments="x:String">[extractedNames]</OutArgument>
                     </ui:GetValue.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                   </ui:GetValue>
-                  <ui:Matches DisplayName="Matches Names In Extracted Text" sap:VirtualizedContainerService.HintSize="562,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[extractedNames]" IsBuilderTabModified="False" Pattern="\w+\s-\s\d+" RegexOption="IgnoreCase, Compiled" Result="[regexResultMatchExtractedNames]" />
-                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each regexResultMatchExtractedNames.Take(CInt(in_Config(&quot;numberOfNamesToTake&quot;).ToString))" sap:VirtualizedContainerService.HintSize="562,563" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[regexResultMatchExtractedNames.Take(CInt(in_Config(&quot;numberOfNamesToTake&quot;).ToString))]">
+                  <ui:Matches DisplayName="Matches Names In Extracted Text" sap:VirtualizedContainerService.HintSize="562,51" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[extractedNames]" IsBuilderTabModified="False" Pattern="\w+\s-\s\d+" RegexOption="IgnoreCase, Compiled" Result="[regexMatch]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Matches>
+                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each regexMatch.Take(CInt(in_Config(&quot;numberOfNamesToTake&quot;).ToString))" sap:VirtualizedContainerService.HintSize="562,563" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[regexMatch.Take(CInt(in_Config(&quot;numberOfNamesToTake&quot;).ToString))]">
                     <ui:ForEach.Body>
                       <ActivityAction x:TypeArguments="x:Object">
                         <ActivityAction.Argument>
