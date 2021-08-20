@@ -90,7 +90,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="websiteURL" />
           </ActivityAction.Argument>
-          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser GOV Website" sap:VirtualizedContainerService.HintSize="638,1153" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="True" UiBrowser="[govBrowser]" Url="[websiteURL]">
+          <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" BrowserType="IE" DisplayName="Open Browser GOV Website" sap:VirtualizedContainerService.HintSize="638,1153" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Private="True" UiBrowser="[govBrowser]" Url="[websiteURL]">
             <ui:OpenBrowser.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
